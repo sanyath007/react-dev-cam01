@@ -12,11 +12,11 @@ const vdoConstraints = {
 };
 
 export default function WebCam() {
-  // const [imageCapture, setImageCapture] = useState(null);
+  const [imageCapture, setImageCapture] = useState(null);
   const webcamRef = useRef(null);
   const capture = useCallback(() => {
     const imageSrc = webcamRef.current.getScreenshot();
-    // setImageCapture(imageSrc);
+    setImageCapture(imageSrc);
   }, [webcamRef]);
 
   return (
@@ -31,9 +31,9 @@ export default function WebCam() {
       />
       <button onClick={capture}>Capture</button>
 
-      {/* {imageCapture && (
-        <div>{imageCapture}</div>
-      )} */}
+      {imageCapture && (
+        <div><img src={imageCapture} /></div>
+      )}
     </div>
   )
 }
